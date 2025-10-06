@@ -1,0 +1,4 @@
+{"eventTime": "2024-05-01T12:02:00Z", "eventName": "ConsoleLogin", "userIdentity": {"type": "IAMUser", "userName": "analyst"}, "sourceIPAddress": "198.51.100.10", "additionalEventData": {"MFAUsed": "No"}, "responseElements": {"ConsoleLogin": "Failure"}}
+{"eventTime": "2024-05-01T12:05:00Z", "eventName": "PutBucketAcl", "userIdentity": {"type": "IAMUser", "userName": "devops"}, "requestParameters": {"bucketName": "finance-data", "AccessControlList": "public-read"}}
+{"eventTime": "2024-05-01T12:08:00Z", "eventName": "ConsoleLogin", "userIdentity": {"type": "IAMUser", "userName": "analyst"}, "sourceIPAddress": "192.0.2.15", "additionalEventData": {"MFAUsed": "Yes"}, "responseElements": {"ConsoleLogin": "Success"}}
+{"eventTime": "2024-05-01T12:10:00Z", "eventName": "AssumeRole", "userIdentity": {"type": "Root", "arn": "arn:aws:iam::123456789012:root"}, "sourceIPAddress": "203.0.113.5"}

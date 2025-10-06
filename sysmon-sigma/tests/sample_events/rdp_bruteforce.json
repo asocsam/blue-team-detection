@@ -1,0 +1,5 @@
+[
+  {"EventID": 4625, "LogonType": 10, "SourceIp": "198.51.100.77", "Computer": "WS-DC-01"},
+  {"EventID": 4625, "LogonType": 10, "SourceIp": "198.51.100.77", "Computer": "WS-DC-01"},
+  {"EventID": 4625, "LogonType": 10, "SourceIp": "198.51.100.77", "Computer": "WS-DC-01"}
+]

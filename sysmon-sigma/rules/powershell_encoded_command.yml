@@ -1,0 +1,23 @@
+title: PowerShell Encoded Command Execution
+id: 9f13f8a7-bd0f-49ae-8e29-8fb41c12f9ae
+description: Detects PowerShell processes launched with encoded command switches often used to obfuscate payloads.
+author: Blue Team Detection Lab
+status: experimental
+date: 2024/05/08
+logsource:
+  product: windows
+  service: sysmon
+  definition: Event ID 1 (Process Create)
+detection:
+  selection:
+    EventID: 1
+    Image|endswith: '\\powershell.exe'
+    CommandLine|contains:
+      - " -enc "
+      - " -encodedcommand "
+  condition: selection
+falsepositives:
+  - Legitimate administrative scripts executed with encoded payloads
+level: high
+references:
+  - https://attack.mitre.org/techniques/T1059/001/

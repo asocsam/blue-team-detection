@@ -1,0 +1,2 @@
+event.dataset : "aws.cloudtrail" and event.action : "ConsoleLogin" and aws.cloudtrail.additionalEventData.MFAUsed : "No"
+| stats earliest(@timestamp) as first_seen, latest(@timestamp) as last_seen by aws.cloudtrail.userIdentity.userName, source.ip
