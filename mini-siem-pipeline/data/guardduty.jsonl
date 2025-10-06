@@ -1,0 +1,1 @@
+{"eventTime": "2024-05-01T12:06:00Z", "detail-type": "GuardDuty Finding", "detail": {"type": "Recon:EC2/Portscan", "service": {"action": {"actionType": "NETWORK_CONNECTION"}}, "severity": 5.3, "resource": {"instanceDetails": {"instanceId": "i-0abcd1234", "tags": [{"key": "Name", "value": "prod-bastion"}]}}}}

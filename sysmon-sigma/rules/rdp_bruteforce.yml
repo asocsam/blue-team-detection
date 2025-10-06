@@ -1,0 +1,22 @@
+title: RDP Brute Force Against Windows Host
+id: 63f483e6-1a56-4c79-9dd4-72e3d5d2cb42
+description: Detects multiple failed RDP logons from a single source in a short time window.
+author: Blue Team Detection Lab
+status: stable
+date: 2024/05/08
+logsource:
+  product: windows
+  service: sysmon
+  definition: Event ID 4625 from Sysmon operational channel
+detection:
+  selection:
+    EventID: 4625
+    LogonType: 10
+  timeframe: 15m
+  condition: selection | count(SourceIp) by SourceIp > 5
+falsepositives:
+  - Users repeatedly entering incorrect passwords
+  - Misconfigured monitoring tools
+level: high
+references:
+  - https://attack.mitre.org/techniques/T1110/

@@ -1,0 +1,6 @@
+`macro_sysmon_index`
+| search EventCode=22
+| eval query_length=len(QueryName)
+| where query_length>=60
+| stats count as query_count avg(query_length) as avg_length values(QueryName) as sample_queries by Computer
+| sort - query_count

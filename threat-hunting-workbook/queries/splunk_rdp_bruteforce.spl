@@ -1,0 +1,6 @@
+`macro_sysmon_index`
+| search EventCode=4625 Logon_Type=10
+| bin _time span=15m
+| stats count values(Account_Name) as accounts by _time, Source_Network_Address, host
+| where count>=6
+| sort - count

@@ -1,0 +1,5 @@
+`macro_cloudtrail_index`
+| search eventName=ConsoleLogin additionalEventData.MFAUsed=No
+| stats earliest(_time) as first_seen latest(_time) as last_seen values(responseElements.ConsoleLogin) as outcomes by userIdentity.userName sourceIPAddress
+| eval geoip_country=iplocation(sourceIPAddress).Country
+| sort - last_seen

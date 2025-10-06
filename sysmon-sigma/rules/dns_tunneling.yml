@@ -1,0 +1,22 @@
+title: Suspicious DNS Query Volume Suggesting Tunneling
+id: 6a50c5b5-3a81-42a8-9858-57979d4b95cb
+description: Flags endpoints issuing a high number of long DNS queries that may indicate tunneling or data exfiltration.
+author: Blue Team Detection Lab
+status: experimental
+date: 2024/05/08
+logsource:
+  product: windows
+  service: sysmon
+  definition: Event ID 22 (DNS Query)
+detection:
+  selection:
+    EventID: 22
+    QueryName|re: '[a-z0-9]{8,}\\.'
+  timeframe: 10m
+  condition: selection | count(QueryName) by Computer > 20
+falsepositives:
+  - Security tools performing DNS-based health checks
+  - CDNs with long subdomains
+level: medium
+references:
+  - https://attack.mitre.org/techniques/T1071/004/

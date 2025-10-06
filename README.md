@@ -1,29 +1,38 @@
-# Blue Team & Detection Engineering 🔵  
+# Blue Team & Detection Engineering 🔵
 
-## Overview  
-This repo contains my Blue Team detection projects: a **mini-SIEM pipeline**, **custom Sigma rules**, and **Splunk/Elastic dashboards** built to detect attacks in AWS and enterprise environments.  
+## Overview
+This repository packages several practical blue-team projects that I built to explore end-to-end detection engineering. It contains:
 
-## Problem  
-SOC teams often struggle with slow alert triage and noisy detections. Cloud and endpoint telemetry can overwhelm analysts.  
+- A **mini SIEM pipeline** that ingests sample AWS, network, and Sysmon telemetry before running lightweight analytics.
+- A collection of **Sigma rules** derived from real incidents that can be pushed to Splunk, Elastic, or any Sigma-aware backend.
+- **Splunk and Kibana dashboards** designed to triage common threats such as credential abuse and DNS tunneling.
+- A **threat hunting workbook** that documents hypotheses, pivot tables, and investigation notes.
 
-## Solution  
-- Built a **mini-SIEM pipeline** ingesting:  
-  - AWS CloudTrail  
-  - VPC Flow Logs  
-  - GuardDuty findings  
-  - Sysmon endpoint logs  
-- Developed **Sigma → Splunk/Elastic correlation rules** for:  
-  - IAM credential misuse  
-  - S3 public exposure  
-  - DNS tunneling  
-  - RDP brute force  
-- Created Splunk & Kibana dashboards for streamlined investigations.  
+## Highlights
+- Pipeline normalises CloudTrail, GuardDuty, VPC Flow Logs, and Sysmon data before applying correlation logic for IAM misuse, S3 exposure, DNS tunnelling, and RDP brute-force.
+- Sigma rules map directly to Sysmon events with MITRE ATT&CK annotations and deployment guidance for both Windows and cross-platform sensors.
+- Dashboards accelerate investigations by surfacing enriched context (geo-IP, prevalence, asset criticality) without overwhelming analysts.
+- Workbook walks through repeatable hunts with ready-to-run queries and decision trees for escalation.
 
-## Impact  
-- Boosted triage speed by **50%**  
-- Reduced false positives by **30%**  
-- Provided reusable detection playbooks for SOC workflows  
+## Repository Structure
+```
+mini-siem-pipeline/      Python-based enrichment and detection pipeline with sample data
+sysmon-sigma/            Sigma rules, testing data, and deployment notes for Sysmon detections
+splunk-elastic-dashboards/  Saved objects for Splunk (JSON) and Kibana (NDJSON)
+threat-hunting-workbook/ Investigation workbook and supporting hunt runbooks
+```
 
-## Setup  
-```bash
-docker compose up
+## Getting Started
+1. Install Python 3.11 or newer.
+2. Navigate to `mini-siem-pipeline/` and install dependencies (standard library only by default).
+3. Execute the pipeline:
+   ```bash
+   python -m mini_siem.main
+   ```
+4. Import the Sigma rules into your preferred backend or test them with `sigmac`.
+5. Load the dashboards into Splunk or Kibana using their native import interfaces.
+
+## Development Notes
+- The project intentionally uses only standard-library modules to keep the demo portable.
+- Sample telemetry is anonymised but follows the real schema from AWS and Sysmon documentation.
+- Feel free to replace the sample JSON files with your own telemetry to extend detections.

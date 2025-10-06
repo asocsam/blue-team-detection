@@ -1,0 +1,9 @@
+{"timestamp": "2024-05-01T12:12:00Z", "event_id": 22, "QueryName": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.example-malware-domain.com", "Computer": "WS-ENG-01"}
+{"timestamp": "2024-05-01T12:12:10Z", "event_id": 22, "QueryName": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.example-malware-domain.com", "Computer": "WS-ENG-01"}
+{"timestamp": "2024-05-01T12:12:20Z", "event_id": 22, "QueryName": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc.example-malware-domain.com", "Computer": "WS-ENG-01"}
+{"timestamp": "2024-05-01T12:13:00Z", "event_id": 4625, "sourceIPAddress": "198.51.100.77", "event_data": {"TargetUserName": "administrator"}, "Computer": "WS-DC-01"}
+{"timestamp": "2024-05-01T12:13:20Z", "event_id": 4625, "sourceIPAddress": "198.51.100.77", "event_data": {"TargetUserName": "administrator"}, "Computer": "WS-DC-01"}
+{"timestamp": "2024-05-01T12:13:40Z", "event_id": 4625, "sourceIPAddress": "198.51.100.77", "event_data": {"TargetUserName": "administrator"}, "Computer": "WS-DC-01"}
+{"timestamp": "2024-05-01T12:14:00Z", "event_id": 4625, "sourceIPAddress": "198.51.100.77", "event_data": {"TargetUserName": "administrator"}, "Computer": "WS-DC-01"}
+{"timestamp": "2024-05-01T12:14:20Z", "event_id": 4625, "sourceIPAddress": "198.51.100.77", "event_data": {"TargetUserName": "administrator"}, "Computer": "WS-DC-01"}
+{"timestamp": "2024-05-01T12:14:40Z", "event_id": 4625, "sourceIPAddress": "198.51.100.77", "event_data": {"TargetUserName": "administrator"}, "Computer": "WS-DC-01"}
